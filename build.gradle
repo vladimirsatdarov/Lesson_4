@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library' // используем язык Java
+}
+
+repositories {
+    mavenCentral() // используем Selenide c mvnrepository.com
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:6.19.1",  // здесь обычно последняя версия библиотеки Selenide c https://mvnrepository.com/artifact/com.codeborne/selenide
+            // github.com/selenide/selenide — тут лежит сам Selenide
+            "org.junit.jupiter:junit-jupiter:5.10.0", // подключаем JUnit — тестовый фреймворк
+            // обращать внимание, что поключалась вся JUnit, а не часть
+            'org.slf4j:slf4j-simple:2.0.7' // что-то для логов
+    )
+}
+
+test {
+    useJUnitPlatform() // интеграция IJ Idea ядром JUnit — появится возможность запускать тесты прямо в IJ Idea (зелёная кнопка)
+}
